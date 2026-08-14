@@ -92,6 +92,24 @@
         currentPhoto = (currentPhoto - 1 + photos.length) % photos.length;
         showPhoto();
     }
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.getElementById("mainPhoto").addEventListener("touchstart", function(event) {
+        touchStartX = event.changedTouches[0].screenX;
+    });
+
+    document.getElementById("mainPhoto").addEventListener("touchend", function(event) {
+        touchEndX = event.changedTouches[0].screenX;
+
+        if (touchEndX < touchStartX - 50) {
+            nextPhoto();
+        }
+
+        if (touchEndX > touchStartX + 50) {
+            previousPhoto();
+        }
+    });
 </script>
 </body>
 
