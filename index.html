@@ -8,12 +8,49 @@
     <title>Ulrich Knoblauch | Photographer</title>
 
     <style>
-        img {
-            width: 400px;
-            height: auto;
-            margin: 10px;
-        }
-    </style>
+    body {
+        margin: 0;
+        background: black;
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    .gallery {
+        position: relative;
+        width: 100%;
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .gallery img {
+        max-width: 90%;
+        max-height: 75vh;
+        width: auto;
+        height: auto;
+    }
+
+    button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent;
+        color: white;
+        border: none;
+        font-size: 40px;
+        cursor: pointer;
+    }
+
+    .prev {
+        left: 20px;
+    }
+
+    .next {
+        right: 20px;
+    }
+</style>
 </head>
 
 <body>
@@ -22,16 +59,40 @@
 
     <p>Photographer</p>
 
-    <img src="images/photo1.png" alt="Ulrich Knoblauch photography">
+    <div class="gallery">
 
-    <img src="images/photo2.png" alt="Ulrich Knoblauch photography">
+    <button class="prev" onclick="previousPhoto()">‹</button>
 
-    <img src="images/photo3.png" alt="Ulrich Knoblauch photography">
+    <img id="mainPhoto" src="images/photo1.png" alt="Ulrich Knoblauch photography">
 
-    <img src="images/photo4.png" alt="Ulrich Knoblauch photography">
+    <button class="next" onclick="nextPhoto()">›</button>
 
-    <img src="images/photo5.png" alt="Ulrich Knoblauch photography">
+</div>
+<script>
+    const photos = [
+        "images/photo1.png",
+        "images/photo2.png",
+        "images/photo3.png",
+        "images/photo4.png",
+        "images/photo5.png"
+    ];
 
+    let currentPhoto = 0;
+
+    function showPhoto() {
+        document.getElementById("mainPhoto").src = photos[currentPhoto];
+    }
+
+    function nextPhoto() {
+        currentPhoto = (currentPhoto + 1) % photos.length;
+        showPhoto();
+    }
+
+    function previousPhoto() {
+        currentPhoto = (currentPhoto - 1 + photos.length) % photos.length;
+        showPhoto();
+    }
+</script>
 </body>
 
 </html>
