@@ -56,18 +56,6 @@ p {
     text-transform: uppercase;
 }
         
-nav a {
-    color: black;
-    text-decoration: none;
-    font-size: 12px;
-    letter-spacing: 3px;
-    margin: 0 15px;
-    text-transform: uppercase;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
     .gallery {
         position: relative;
         width: 100%;
@@ -103,21 +91,20 @@ transform: translateX(90px);
 button:hover {
     opacity: 1;
 }
-
+.photo-frame {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
 .prev {
-    left: 15px;
+    left: -50px;
 }
 
 .next {
-    right: 15px;
+    right: -50px;
 }
-    .prev {
-        left: 30%;
-    }
-
-    .next {
-        right: 30%;
-    }
+    
 </style>
 </head>
 
@@ -137,11 +124,16 @@ button:hover {
 
     <div class="gallery">
 
-    <button class="prev" onclick="previousPhoto()">❮</button>
+    <div class="photo-frame">
 
-    <img id="mainPhoto" src="images/photo1.png" alt="Ulrich Knoblauch photography">
+        <img id="mainPhoto" src="images/photo1.png" alt="Ulrich Knoblauch photography">
 
-    <button class="next" onclick="nextPhoto()">❯</button>
+        <button class="prev" onclick="previousPhoto()">‹</button>
+
+        <button class="next" onclick="nextPhoto()">›</button>
+
+    </div>
+
 </div>
 <script>
     const photos = [
