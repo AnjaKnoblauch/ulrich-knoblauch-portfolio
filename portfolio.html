@@ -167,6 +167,10 @@ button:hover {
     object-fit: contain;
     margin: 0 auto 80px auto;
 }
+        .all-photos img.landscape {
+    max-width: 60vw;
+    max-height: 70vh;
+}
 </style>
 </head>
 
@@ -266,6 +270,23 @@ function showSingle() {
     document.getElementById("allPhotos").style.display = "none";
     document.querySelector(".gallery").style.display = "flex";
 }
+    document.querySelectorAll(".all-photos img").forEach(function(img) {
+    img.addEventListener("load", function() {
+        if (img.naturalWidth > img.naturalHeight) {
+            img.classList.add("landscape");
+        } else {
+            img.classList.add("portrait");
+        }
+    });
+
+    if (img.complete) {
+        if (img.naturalWidth > img.naturalHeight) {
+            img.classList.add("landscape");
+        } else {
+            img.classList.add("portrait");
+        }
+    }
+});
 </script>
 </body>
 
