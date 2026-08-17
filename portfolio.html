@@ -192,6 +192,13 @@ button:hover {
     </div>
 
 </div>
+    <div class="all-photos" id="allPhotos">
+    <img src="images/photo1.png" alt="Ulrich Knoblauch photography">
+    <img src="images/photo2.png" alt="Ulrich Knoblauch photography">
+    <img src="images/photo3.png" alt="Ulrich Knoblauch photography">
+    <img src="images/photo4.png" alt="Ulrich Knoblauch photography">
+    <img src="images/photo5.png" alt="Ulrich Knoblauch photography">
+</div>
 <script>
     const photos = [
         "images/photo1.png",
@@ -234,6 +241,15 @@ button:hover {
             previousPhoto();
         }
     });
+    function showGrid() {
+    document.querySelector(".gallery").style.display = "none";
+    document.getElementById("allPhotos").style.display = "block";
+}
+
+function showSingle() {
+    document.getElementById("allPhotos").style.display = "none";
+    document.querySelector(".gallery").style.display = "flex";
+}
 </script>
 </body>
 
