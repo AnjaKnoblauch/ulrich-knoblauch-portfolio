@@ -57,21 +57,21 @@ p {
 }
         
     .gallery {
-        position: relative;
-        width: 100%;
-        height: 80vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-    }
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
 
     .gallery img {
-        max-width: 90%;
-        max-height: 78vh;
-        width: auto;
-        height: 78vh;
-    }
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100vw;
+    max-height: 100vh;
+    object-fit: contain;
+    margin: 0 auto;
+}
 
     button {
     position: absolute;
@@ -197,15 +197,11 @@ button:hover {
 </div>
     <div class="gallery">
 
-    <div class="photo-frame">
-
-        <img id="mainPhoto" src="images/photo1.png" alt="Ulrich Knoblauch photography">
-
-        <button class="prev" onclick="previousPhoto()">‹</button>
-
-        <button class="next" onclick="nextPhoto()">›</button>
-
-    </div>
+    <img src="images/photo1.png" alt="Ulrich Knoblauch photography">
+    <img src="images/photo2.png" alt="Ulrich Knoblauch photography">
+    <img src="images/photo3.png" alt="Ulrich Knoblauch photography">
+    <img src="images/photo4.png" alt="Ulrich Knoblauch photography">
+    <img src="images/photo5.png" alt="Ulrich Knoblauch photography">
 
 </div>
     <div class="all-photos" id="allPhotos">
@@ -216,73 +212,17 @@ button:hover {
     <img src="images/photo5.png" alt="Ulrich Knoblauch photography">
 </div>
 <script>
-    const photos = [
-        "images/photo1.png",
-        "images/photo2.png",
-        "images/photo3.png",
-        "images/photo4.png",
-        "images/photo5.png"
-    ];
-
-    let currentPhoto = 0;
-
-    function showPhoto() {
-        document.getElementById("mainPhoto").src = photos[currentPhoto];
-    }
-
-    function nextPhoto() {
-        currentPhoto = (currentPhoto + 1) % photos.length;
-        showPhoto();
-    }
-
-    function previousPhoto() {
-        currentPhoto = (currentPhoto - 1 + photos.length) % photos.length;
-        showPhoto();
-    }
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    document.getElementById("mainPhoto").addEventListener("touchstart", function(event) {
-        touchStartX = event.changedTouches[0].screenX;
-    });
-
-    document.getElementById("mainPhoto").addEventListener("touchend", function(event) {
-        touchEndX = event.changedTouches[0].screenX;
-
-        if (touchEndX < touchStartX - 50) {
-            nextPhoto();
-        }
-
-        if (touchEndX > touchStartX + 50) {
-            previousPhoto();
-        }
-    });
+    
     function showGrid() {
     document.querySelector(".gallery").style.display = "none";
-    document.getElementById("allPhotos").style.display = "grid";
+    document.getElementById("allPhotos").style.display = "flex";
 }
 
 function showSingle() {
     document.getElementById("allPhotos").style.display = "none";
     document.querySelector(".gallery").style.display = "flex";
 }
-    document.querySelectorAll(".all-photos img").forEach(function(img) {
-    img.addEventListener("load", function() {
-        if (img.naturalWidth > img.naturalHeight) {
-            img.classList.add("landscape");
-        } else {
-            img.classList.add("portrait");
-        }
-    });
 
-    if (img.complete) {
-        if (img.naturalWidth > img.naturalHeight) {
-            img.classList.add("landscape");
-        } else {
-            img.classList.add("portrait");
-        }
-    }
-});
 </script>
 </body>
 
