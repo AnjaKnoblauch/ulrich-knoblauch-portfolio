@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ulrich Knoblauch | Bio / Contact</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: white;
+            color: black;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 28px 42px;
+        }
+
+        .logo {
+            font-size: 18px;
+            white-space: nowrap;
+        }
+
+        nav {
+            margin-left: auto;
+            display: flex;
+            gap: 42px;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 3px;
+        }
+
+        .bio-content {
+            max-width: 1160px;
+            margin: 250px auto 0;
+            padding: 0 30px;
+        }
+
+        .bio-text {
+            font-size: 15px;
+            line-height: 2;
+        }
+
+        .contact {
+            margin-top: 110px;
+            text-align: center;
+        }
+
+        .contact a {
+            color: black;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin: 0 18px;
+        }
+
+        .contact a:hover,
+        nav a:hover {
+            opacity: 0.5;
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 14px 16px 10px;
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                width: 100%;
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+
+            nav {
+                width: 100%;
+                margin-left: 0;
+                justify-content: flex-start;
+                gap: 16px;
+            }
+
+            nav a {
+                font-size: 9px;
+                letter-spacing: 1.5px;
+                white-space: nowrap;
+            }
+
+            .bio-content {
+                margin: 110px auto 0;
+                padding: 0 24px;
+            }
+
+            .bio-text {
+                font-size: 13px;
+                line-height: 1.8;
+            }
+
+            .contact {
+                margin-top: 70px;
+                padding-bottom: 40px;
+            }
+
+            .contact a {
+                display: block;
+                margin: 18px 0;
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">ULRICH KNOBLAUCH</div>
+
+        <nav>
+            <a href="portfolio.html">PORTFOLIO</a>
+            <a href="editorial.html">EDITORIAL</a>
+            <a href="bio.html">BIO / CONTACT</a>
+        </nav>
+    </header>
+
+    <main class="bio-content">
+
+        <div class="bio-text">
+            South African born Ulrich Knoblauch’s easy going personality,
+            infectious enthusiasm and positive outlook on life, combined with
+            his love for a clean aesthetic and constant search for beauty in
+            all his subjects, has made him a firm favorite amongst clients
+            including Proenza Schouler, Isabel Marant, Sportmax, Lacoste,
+            Bureau Future, Petronio Associates, Victoria Beckham,
+            Alexander McQueen and Margiela amongst others.
+        </div>
+
+        <div class="contact">
+            <a href="mailto:ulrich@ulrichknoblauch.com">EMAIL</a>
+
+            <a href="https://www.instagram.com/ulrichknoblauch_/"
+               target="_blank"
+               rel="noopener noreferrer">
+                INSTAGRAM
+            </a>
+        </div>
+
+    </main>
+
+</body>
+</html>
