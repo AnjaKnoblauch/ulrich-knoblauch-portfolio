@@ -1,1 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ulrich Knoblauch | Photographer</title>
+
+    <style>
+    body {
+        margin: 0;
+        background: white;
+        color: black;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: white;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    padding: 18px 40px;
+}
+h1 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-right: 35px;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+p {
+    margin: 0;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+        
+    .gallery {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+        gap: 30px;
+        padding-top: 75px;
+}
+
+    .gallery img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100vh;
+    object-fit: contain;
+    margin: 0 auto;
+}
+    
+.photo-frame {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+  .view-toggle {
+    position: fixed;
+    top: 78px;
+    right: 40px;
+    z-index: 1001;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.view-toggle button {
+    position: static;
+    transform: none;
+    padding: 0;
+    opacity: 0.45;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.view-toggle button:hover {
+    opacity: 1;
+}  
+      .grid-icon {
+    display: grid;
+    grid-template-columns: repeat(2, 7px);
+    grid-template-rows: repeat(2, 7px);
+    gap: 3px;
+}
+
+.grid-icon span {
+    width: 7px;
+    height: 7px;
+    background: #777;
+    display: block;
+}
+
+.single-icon {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #777;
+    display: block;
+    box-sizing: border-box;
+}
+        .all-photos {
+    display: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 75px 20px 80px;
+    gap: 10px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.all-photos img {
+    width: auto;
+    height: 150px;
+    object-fit: contain;
+    display: block;
+}
+        @media (max-width: 768px) {
+
+    header {
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.logo {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+nav {
+    width: 100%;
+    margin-left: 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+nav a {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    margin-right: 0;
+    white-space: nowrap;
+}
+
+    .view-toggle {
+    position: relative;
+    top: auto;
+    right: auto;
+    justify-content: flex-end;
+    padding: 8px 16px 4px;
+    gap: 10px;
+}
+    .gallery {
+        padding-top: 12px;
+        gap: 20px;
+    }
+
+    .gallery img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        max-height: none;
+    }
+
+    .all-photos {
+        padding: 65px 12px 50px;
+        gap: 8px;
+    }
+
+    .all-photos img {
+        height: 110px;
+        width: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+    
+
+    <header>
+        <div class="logo">ULRICH KNOBLAUCH</div>
+
+        <nav>
+            <a href="portfolio.html">PORTFOLIO</a>
+            <a href="#">EDITORIAL</a>
+            <a href="#">BIO / CONTACT</a>
+        </nav>
+    </header>
+<div class="view-toggle">
+    <button class="grid-view" onclick="showGrid()" aria-label="Grid view">
+    <span class="grid-icon">
+        <span></span><span></span>
+        <span></span><span></span>
+    </span>
+</button>
+
+<button class="single-view" onclick="showSingle()" aria-label="Single image view">
+    <span class="single-icon"></span>
+</button>
+</div>
+    <div class="gallery">
+<img src="images/client1.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client2.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client3.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client4.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client5.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client6.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client7.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client8.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client9.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client10.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client11.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client12.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client13.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client14.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client15.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client16.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client17.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client18.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client19.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client20.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client21.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client22.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client23.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client24.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client25.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client26.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client27.jpg" alt="Ulrich Knoblauch photography">
+    
+</div>
+    <div class="all-photos" id="allPhotos">
+
+    <img src="images/client1.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client2.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client3.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client4.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client5.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client6.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client7.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client8.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client9.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client10.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client11.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client12.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client13.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client14.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client15.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client16.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client17.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client18.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client19.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client20.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client21.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client22.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client23.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client24.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client25.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client26.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client27.jpg" alt="Ulrich Knoblauch photography">
+    
+</div>
+<script>
+    
+    function showGrid() {
+    document.querySelector(".gallery").style.display = "none";
+    document.getElementById("allPhotos").style.display = "flex";
+}
+
+function showSingle() {
+    document.getElementById("allPhotos").style.display = "none";
+    document.querySelector(".gallery").style.display = "flex";
+}
+
+</script>
+</body>
+
+</html>
+
 
