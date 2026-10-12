@@ -8,6 +8,7 @@
     <title>Ulrich Knoblauch | Photographer</title>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap');
     body {
         margin: 0;
         background: white;
@@ -16,11 +17,18 @@
         text-align: center;
     }
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: white;
+    box-sizing: border-box;
+
     display: flex;
     align-items: center;
-    padding: 25px 45px;
+    padding: 18px 40px;
 }
-
 h1 {
     margin: 0;
     font-size: 18px;
@@ -57,57 +65,165 @@ p {
 }
         
     .gallery {
-        position: relative;
-        width: 100%;
-        height: 80vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-    }
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+        gap: 30px;
+        padding-top: 75px;
+}
 
     .gallery img {
-        max-width: 90%;
-        max-height: 78vh;
-        width: auto;
-        height: 78vh;
-    }
-
-    button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    color: black;
-    border: none;
-    font-size: 30px;
-    font-weight: 400;
-    cursor: pointer;
-    padding: 10px;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100vh;
+    object-fit: contain;
+    margin: 0 auto;
 }
-
-button:hover {
-    opacity: 1;
-}
-        button:focus {
-    outline: none;
-}
+    
 .photo-frame {
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
-.prev {
-    left: -50px;
+  .view-toggle {
+    position: fixed;
+    top: 78px;
+    right: 40px;
+    z-index: 1001;
+    display: flex;
+    gap: 14px;
+    align-items: center;
 }
 
-.next {
-    right: -50px;
+.view-toggle button {
+    position: static;
+    transform: none;
+    padding: 0;
+    opacity: 0.45;
+    font-size: 24px;
+    line-height: 1;
 }
-    
+
+.view-toggle button:hover {
+    opacity: 1;
+}  
+      .grid-icon {
+    display: grid;
+    grid-template-columns: repeat(2, 7px);
+    grid-template-rows: repeat(2, 7px);
+    gap: 3px;
+}
+
+.grid-icon span {
+    width: 7px;
+    height: 7px;
+    background: #777;
+    display: block;
+}
+
+.single-icon {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #777;
+    display: block;
+    box-sizing: border-box;
+}
+        .all-photos {
+    display: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 75px 20px 80px;
+    gap: 10px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.all-photos img {
+    width: auto;
+    height: 150px;
+    object-fit: contain;
+    display: block;
+}
+        .logo a,
+.logo a:visited,
+.logo a:hover,
+.logo a:active {
+    color: black;
+    text-decoration: none;
+}
+        @media (max-width: 768px) {
+
+    header {
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+            .logo a,
+.logo a:visited,
+.logo a:hover,
+.logo a:active {
+    color: black;
+    text-decoration: none;
+}
+
+nav {
+    width: 100%;
+    margin-left: 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+nav a {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    margin-right: 0;
+    white-space: nowrap;
+}
+
+    .view-toggle {
+    position: relative;
+    top: auto;
+    right: auto;
+    justify-content: flex-end;
+    padding: 8px 16px 4px;
+    gap: 10px;
+}
+    .gallery {
+        padding-top: 12px;
+        gap: 20px;
+    }
+
+    .gallery img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        max-height: none;
+    }
+
+    .all-photos {
+        padding: 65px 12px 50px;
+        gap: 8px;
+    }
+
+    .all-photos img {
+        height: 110px;
+        width: auto;
+    }
+}
 </style>
 </head>
 
@@ -116,71 +232,101 @@ button:hover {
     
 
     <header>
-        <div class="logo">ULRICH KNOBLAUCH</div>
+        <div class="logo"><a href="index.html">ULRICH KNOBLAUCH</a></div>
 
         <nav>
             <a href="portfolio.html">PORTFOLIO</a>
-    <a href="editorial.html">EDITORIAL</a>
-    <a href="bio.html">BIO / CONTACT</a>
+            <a href="editorial.html">EDITORIAL</a>
+            <a href="bio.html">BIO / CONTACT</a>
         </nav>
     </header>
+<div class="view-toggle">
+    <button class="grid-view" onclick="showGrid()" aria-label="Grid view">
+    <span class="grid-icon">
+        <span></span><span></span>
+        <span></span><span></span>
+    </span>
+</button>
 
+<button class="single-view" onclick="showSingle()" aria-label="Single image view">
+    <span class="single-icon"></span>
+</button>
+</div>
     <div class="gallery">
+<img src="images/client1.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client2.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client3.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client4.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client5.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client6.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client7.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client8.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client9.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client10.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client11.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client12.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client13.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client14.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client15.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client16.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client17.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client18.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client19.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client20.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client21.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client22.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client23.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client24.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client25.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client26.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client27.jpg" alt="Ulrich Knoblauch photography">
+    
+</div>
+    <div class="all-photos" id="allPhotos">
 
-    <div class="photo-frame">
-
-        <img id="mainPhoto" src="images/photo1.png" alt="Ulrich Knoblauch photography">
-
-        <button class="prev" onclick="previousPhoto()">‹</button>
-
-        <button class="next" onclick="nextPhoto()">›</button>
-
-    </div>
-
+    <img src="images/client1.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client2.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client3.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client4.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client5.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client6.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client7.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client8.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client9.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client10.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client11.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client12.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client13.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client14.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client15.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client16.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client17.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client18.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client19.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client20.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client21.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client22.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client23.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client24.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client25.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client26.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client27.jpg" alt="Ulrich Knoblauch photography">
+    
 </div>
 <script>
-    const photos = [
-        "images/photo1.png",
-        "images/photo2.png",
-        "images/photo3.png",
-        "images/photo4.png",
-        "images/photo5.png"
-    ];
+    
+    function showGrid() {
+    document.querySelector(".gallery").style.display = "none";
+    document.getElementById("allPhotos").style.display = "flex";
+}
 
-    let currentPhoto = 0;
+function showSingle() {
+    document.getElementById("allPhotos").style.display = "none";
+    document.querySelector(".gallery").style.display = "flex";
+}
 
-    function showPhoto() {
-        document.getElementById("mainPhoto").src = photos[currentPhoto];
-    }
-
-    function nextPhoto() {
-        currentPhoto = (currentPhoto + 1) % photos.length;
-        showPhoto();
-    }
-
-    function previousPhoto() {
-        currentPhoto = (currentPhoto - 1 + photos.length) % photos.length;
-        showPhoto();
-    }
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    document.getElementById("mainPhoto").addEventListener("touchstart", function(event) {
-        touchStartX = event.changedTouches[0].screenX;
-    });
-
-    document.getElementById("mainPhoto").addEventListener("touchend", function(event) {
-        touchEndX = event.changedTouches[0].screenX;
-
-        if (touchEndX < touchStartX - 50) {
-            nextPhoto();
-        }
-
-        if (touchEndX > touchStartX + 50) {
-            previousPhoto();
-        }
-    });
 </script>
 </body>
 
 </html>
+
