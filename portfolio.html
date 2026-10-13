@@ -253,7 +253,7 @@ nav a {
 </button>
 </div>
     <div class="gallery">
-<img src="images/client1.jpg" alt="Ulrich Knoblauch photography">
+<img src="images/client1.jpg" alt="Ulrich Knoblauch photography" onclick="openInGrid(0)">
     <img src="images/client2.jpg" alt="Ulrich Knoblauch photography">
     <img src="images/client3.jpg" alt="Ulrich Knoblauch photography">
     <img src="images/client4.jpg" alt="Ulrich Knoblauch photography">
@@ -323,6 +323,23 @@ nav a {
 function showSingle() {
     document.getElementById("allPhotos").style.display = "none";
     document.querySelector(".gallery").style.display = "flex";
+} 
+    function openInGrid(index) {
+    document.querySelector(".gallery").style.display = "none";
+    document.getElementById("allPhotos").style.display = "flex";
+
+    const gridImages = document.querySelectorAll("#allPhotos img");
+    const targetImage = gridImages[index];
+
+    if (targetImage) {
+        setTimeout(() => {
+            targetImage.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+                inline: "center"
+            });
+        }, 100);
+    }
 }
 
 </script>
