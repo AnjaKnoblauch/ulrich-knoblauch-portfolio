@@ -253,11 +253,11 @@ nav a {
 </button>
 </div>
     <div class="gallery">
-<img src="images/client1.jpg" alt="Ulrich Knoblauch photography" onclick="openInGrid(0)">
+<img src="images/client1.jpg" alt="Ulrich Knoblauch photography">
     <img src="images/client2.jpg" alt="Ulrich Knoblauch photography">
     <img src="images/client3.jpg" alt="Ulrich Knoblauch photography">
     <img src="images/client4.jpg" alt="Ulrich Knoblauch photography">
-    <img id="grid5" src="images/client5.jpg" alt="Ulrich Knoblauch photography">
+    <img src="images/client5.jpg" alt="Ulrich Knoblauch photography" onclick="openInGrid('grid5')">
     <img src="images/client6.jpg" alt="Ulrich Knoblauch photography">
     <img src="images/client7.jpg" alt="Ulrich Knoblauch photography">
     <img src="images/client8.jpg" alt="Ulrich Knoblauch photography">
@@ -288,7 +288,7 @@ nav a {
     <img src="images/client2.jpg" alt="Ulrich Knoblauch photography">
     <img src="images/client3.jpg" alt="Ulrich Knoblauch photography">
     <img src="images/client4.jpg" alt="Ulrich Knoblauch photography">
-    <img src="images/client5.jpg" alt="Ulrich Knoblauch photography">
+    <img id="grid5" src="images/client5.jpg" alt="Ulrich Knoblauch photography">
     <img src="images/client6.jpg" alt="Ulrich Knoblauch photography">
     <img src="images/client7.jpg" alt="Ulrich Knoblauch photography">
     <img src="images/client8.jpg" alt="Ulrich Knoblauch photography">
@@ -315,21 +315,11 @@ nav a {
 </div>
 <script>
     
-    function openInGrid(index) {
+    function openInGrid(targetId) {
     document.querySelector(".gallery").style.display = "none";
     document.getElementById("allPhotos").style.display = "flex";
 
-    const gridImages = document.querySelectorAll("#allPhotos img");
-    const targetImage = gridImages[index];
-
-    if (targetImage) {
-        setTimeout(function() {
-            targetImage.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-        }, 500);
-    }
+    window.location.hash = targetId;
 }
 </script>
 </body>
