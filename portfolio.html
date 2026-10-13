@@ -315,15 +315,6 @@ nav a {
 </div>
 <script>
     
-    function showGrid() {
-    document.querySelector(".gallery").style.display = "none";
-    document.getElementById("allPhotos").style.display = "flex";
-}
-
-function showSingle() {
-    document.getElementById("allPhotos").style.display = "none";
-    document.querySelector(".gallery").style.display = "flex";
-} 
     function openInGrid(index) {
     document.querySelector(".gallery").style.display = "none";
     document.getElementById("allPhotos").style.display = "flex";
@@ -332,16 +323,14 @@ function showSingle() {
     const targetImage = gridImages[index];
 
     if (targetImage) {
-        setTimeout(() => {
+        setTimeout(function() {
             targetImage.scrollIntoView({
                 behavior: "smooth",
-                block: "center",
-                inline: "center"
+                block: "center"
             });
-        }, 100);
+        }, 500);
     }
 }
-
 </script>
 </body>
 
