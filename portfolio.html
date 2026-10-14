@@ -224,6 +224,10 @@ nav a {
         width: auto;
     }
 }
+        .grid-highlight {
+    outline: 3px solid black;
+    outline-offset: 4px;
+}
 </style>
 </head>
 
@@ -319,7 +323,11 @@ nav a {
     document.querySelector(".gallery").style.display = "none";
     document.getElementById("allPhotos").style.display = "flex";
 
-    window.location.hash = targetId;
+    const targetImage = document.getElementById(targetId);
+
+    if (targetImage) {
+        targetImage.classList.add("grid-highlight");
+    }
 }
 </script>
 </body>
