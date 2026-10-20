@@ -145,24 +145,8 @@ p {
     height: 150px;
     object-fit: contain;
     display: block;
-}
-    .all-photos.focus-mode {
-    flex-wrap: nowrap !important;
-    overflow-x: auto;
-    align-items: center;
-    min-height: 350px;
-    scroll-behavior: smooth;
-}
+}FF
 
-.all-photos.focus-mode::before,
-.all-photos.focus-mode::after {
-    content: "";
-    flex: 0 0 40%;
-}
-
-.all-photos.focus-mode img {
-    flex-shrink: 0;
-}
         .logo a,
 .logo a:visited,
 .logo a:hover,
@@ -330,7 +314,7 @@ nav a {
     
 </div>
 <script>
-    function showGrid() {document.getElementById("allPhotos").classList.remove("focus-mode");
+    function showGrid() {
     document.querySelector(".gallery").style.display = "none";
     document.getElementById("allPhotos").style.display = "flex";
 }
@@ -341,22 +325,7 @@ function showSingle() {
 }
     
     function openInGrid(targetId) {
-    const grid = document.getElementById("allPhotos");
-
     showGrid();
-grid.classList.add("focus-mode");
-
-    const targetImage = document.getElementById(targetId);
-
-    if (targetImage) {
-        requestAnimationFrame(() => {
-            targetImage.scrollIntoView({
-                behavior: "smooth",
-                block: "center",
-                inline: "center"
-            });
-        });
-    }
 }
 </script>
 </body>
